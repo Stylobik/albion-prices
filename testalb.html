@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Demo app</title>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-dark.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" p />
+
+    <style>
+      body {
+        width: 84vw;
+        margin: auto;
+      }
+      #disc,
+      #ig {
+        display: none;
+      }
+      .rawOrTrans > div {
+        padding: 14px;
+      }
+      .rawOrTrans {
+        flex-wrap: nowrap;
+      }
+      .rawOrTrans > .row {
+        border: 1px solid black;
+        background-color: #fbfbfb24;
+        margin: 5px;
+      }
+      .row.img {
+        width: 100px;
+      }
+      .img > img {
+        width: 100%;
+      }
+      form {
+        background: none;
+        border: none;
+        border-radius: none;
+      }
+      .raw > .col > .cost {
+        margin: -11px 11px 3px 7px;
+        padding: 0 12px;
+        border-bottom: 1px solid #6b6b6b;
+      }
+      .trans > .col > .cost {
+        padding: 0 12px;
+        margin: 0px 11px -5px 7px;
+        border-top: 1px solid #6b6b6b;
+      }
+      .cost {
+        justify-content: center;
+        border-radius: 5px;
+      }
+      h5 {
+        margin: 0;
+      }
+      .rawOrTrans .button-group:last-child {
+        width: 50%;
+        justify-content: end;
+      }
+      input[type="number"] {
+        -moz-appearance: textfield;
+        max-width: 108px !important;
+      }
+      input::-webkit-inner-spin-button,
+      input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div id="disc" class="col responsive-margin"><mark style="margin: 0 10px;">Sur Discord:</mark><span></span></div>
+        <div id="ig" class="col responsive-margin"><mark style="margin: 0 10px;" class="tertiary">Sur Albion:</mark><span></span></div>
+      </div>
+      <div class="row" style="justify-content: center;">
+        <form>
+          <select name="loc">
+            <option>Bridgewatch </option>
+            <option>Carleon </option>
+            <option>Martlock </option>
+            <option>Lymhurst </option>
+            <option>Fort Sterling </option>
+            <option>Thetford </option>
+          </select>
+        </form>
+      </div>
+      <div class="row">
+        <div class="col-6"></div>
+
+        <div class="col-6 rawOrTrans">
+          <div class="row" style="background: none; border:none;justify-content: space-between;padding:0;">
+            <div class="button-group">
+              <span class="tooltip" aria-label="Lock or not the number of materials needed for each object"
+                ><button id="lock"><i class="fas fa-lock"></i></button
+              ></span>
+              <input class="number" type="number" placeholder="Nombre" style="border:none;" />
+            </div>
+            <div class="button-group" id="enchant">
+              <button value="">0</button>
+              <button value="_LEVEL1">.1</button>
+              <button value="_LEVEL2">.2</button>
+              <button value="_LEVEL3">.3</button>
+            </div>
+          </div>
+          <div class="row tailoring" name="tailoring">
+            <div class="col T4">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T4_FIBER" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T4_CLOTH" /></div>
+                </div>
+              </div>
+            </div>
+            <div class="col T5">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T5_FIBER" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T5_CLOTH" /></div>
+                </div>
+              </div>
+            </div>
+            <div class="col T6">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T6_FIBER" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T6_CLOTH" /></div>
+                </div>
+              </div>
+            </div>
+            <div class="col T7">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T7_FIBER" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T7_CLOTH" /></div>
+                </div>
+              </div>
+            </div>
+            <div class="col T8">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T8_FIBER" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T8_CLOTH" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row leatherworking" name="leatherworking">
+            <div class="col T4">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T4_HIDE" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T4_LEATHER" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T5">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T5_HIDE" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T5_LEATHER" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T6">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T6_HIDE" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T6_LEATHER" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T7">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T7_HIDE" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T7_LEATHER" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T8">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T8_HIDE" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T8_LEATHER" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row refining" name="refining">
+            <div class="col T4">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T4_ORE" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T4_METALBAR" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T5">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T5_ORE" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T5_METALBAR" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T6">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T6_ORE" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T6_METALBAR" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T7">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T7_ORE" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T7_METALBAR" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T8">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T8_ORE" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T8_METALBAR" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row woodworking" name="woodworking">
+            <div class="col T4">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T4_WOOD" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T4_PLANKS" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T5">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T5_WOOD" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T5_PLANKS" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T6">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T6_WOOD" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T6_PLANKS" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T7">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T7_WOOD" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T7_PLANKS" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T8">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T8_WOOD" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T8_PLANKS" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row stoneworking" name="stoneworking">
+            <div class="col T4">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T4_ROCK" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T4_STONEBLOCK" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T5">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T5_ROCK" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T5_STONEBLOCK" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T6">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T6_ROCK" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T6_STONEBLOCK" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T7">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T7_ROCK" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T7_STONEBLOCK" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col T8">
+              <div class="row raw">
+                <div class="col">
+                  <div class="row img"><img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T8_ROCK" /></div>
+                  <div class="row cost"><h5></h5></div>
+                </div>
+              </div>
+              <div class="row trans">
+                <div class="col">
+                  <div class="row cost"><h5></h5></div>
+                  <div class="row img">
+                    <img src="https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/T8_STONEBLOCK" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      const api = "https://www.albion-online-data.com/api/v1/stats/prices/";
+      const disc = "https://discordapp.com/api/servers/562300005944393738/widget.json";
+      var img = "https://albiononline2d.ams3.cdn.digitaloceanspaces.com/thumbnails/orig/";
+      var fiber = ["T4_FIBER", "T5_FIBER", "T6_FIBER", "T7_FIBER", "T8_FIBER"];
+      var cloth = ["T4_CLOTH", "T5_CLOTH", "T6_CLOTH", "T7_CLOTH", "T8_CLOTH"];
+      var hide = ["T4_HIDE", "T5_HIDE", "T6_HIDE", "T7_HIDE", "T8_HIDE"];
+      var leather = ["T4_LEATHER", "T5_LEATHER", "T6_LEATHER", "T7_LEATHER", "T8_LEATHER"];
+      var ore = ["T4_ORE", "T5_ORE", "T6_ORE", "T7_ORE", "T8_ORE"];
+      var metalbar = ["T4_METALBAR", "T5_METALBAR", "T6_METALBAR", "T7_METALBAR", "T8_METALBAR"];
+      var wood = ["T4_WOOD", "T5_WOOD", "T6_WOOD", "T7_WOOD", "T8_WOOD"];
+      var planks = ["T4_PLANKS", "T5_PLANKS", "T6_PLANKS", "T7_PLANKS", "T8_PLANKS"];
+      var rock = ["T4_ROCK", "T5_ROCK", "T6_ROCK", "T7_ROCK", "T8_ROCK"];
+      var stoneblock = ["T4_STONEBLOCK", "T5_STONEBLOCK", "T6_STONEBLOCK", "T7_STONEBLOCK", "T8_STONEBLOCK"];
+      var tailoring = ".tailoring";
+      var leatherworking = ".leatherworking";
+      var refining = ".refining";
+      var woodworking = ".woodworking";
+      var stoneworking = ".stoneworking";
+      var number, loc, enchant;
+      var enchantFix; // api should return _LEVELx for imgs. Possible issue.
+
+      $("[name=loc], .number").change(function() {
+        number = $(".number").val();
+        loc = $("[name=loc]")
+          .children("option:selected")
+          .val();
+        getAllRawTrans("");
+      });
+
+      // READY
+      $(document).ready(function() {
+        //// init raw/trans as FLAT
+        getAllRawTrans("");
+        getDiscord();
+      });
+
+      // FUNCTIONS
+      //// Discord
+      function getDiscord() {
+        var settingsDisc = {
+          async: true,
+          crossDomain: true,
+          url: disc,
+          method: "GET"
+        };
+        $.ajax(settingsDisc).done(function(res) {
+          var users = [];
+          var ig = [];
+          for (let i = 0; i < res.members.length; i++) {
+            if (res.members[i].channel_id) {
+              users.push(res.members[i].username);
+              $("#disc").show();
+              $("#disc span").text(users.join(", "));
+            }
+            if (res.members[i].game.name === "Albion Online") {
+              ig.push(res.members[i].username);
+              $("#ig").show();
+              $("#ig span").text(ig.join(", "));
+            } else {
+              $("#ig, #disc").hide();
+            }
+          }
+        });
+      }
+      //// Get ALL raw/trans
+      function getAllRawTrans(enchantFix) {
+        getRawTrans(fiber, cloth, enchantFix, tailoring);
+        getRawTrans(hide, leather, enchantFix, leatherworking);
+        getRawTrans(ore, metalbar, enchantFix, refining);
+        getRawTrans(wood, planks, enchantFix, woodworking);
+        getRawTrans(rock, stoneblock, enchantFix, stoneworking);
+      }
+      //// Raw/trans
+      var max;
+      function getRawTrans(raw, trans, enchantFix, job) {
+        loc = $("[name=loc]")
+          .children("option:selected")
+          .val();
+        number = $(".number").val();
+        var array = [];
+        for (let i = 0; i < raw.length; i++) {
+          $.ajax(api + raw[i] + enchantFix + "?locations=" + loc).done(function(res) {
+            array = [$(job + " .raw .cost")[i]];
+            $(array).each(function(index) {
+              if ($("#lock > i").hasClass("fa-lock")) {
+                max = Math.min(Math.max(parseInt(i + 2), 1), 5);
+              } else {
+                max = 1;
+              }
+              $(this).text(formatNumber(res[0].sell_price_min * max * number));
+              // DEBUG i = tier
+              console.log(
+                i + " " + raw[i] + " " + res[0].sell_price_min + " x " + max + " x " + number + " = " + formatNumber(res[0].sell_price_min * max * number)
+              );
+            });
+          });
+        }
+        for (let i = 0; i < trans.length; i++) {
+          $.ajax(api + trans[i] + enchantFix + "?locations=" + loc).done(function(res) {
+            array = [$(job + " .trans .cost")[i]];
+            $(array).each(function(index) {
+              $(this).text(formatNumber(res[0].sell_price_min * number));
+            });
+          });
+        }
+      }
+
+      //// Misc
+      function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ");
+      }
+
+      $("#enchant > button").click(function() {
+        enchant = $(this).val();
+        if (enchant === "_LEVEL1") {
+          enchantFix = "_LEVEL1@1";
+          $(".rawOrTrans > .row").css("border-color", "#7BC985");
+        } else if (enchant === "_LEVEL2") {
+          enchantFix = "_LEVEL2@2";
+          $(".rawOrTrans > .row").css("border-color", "#84DDE4");
+        } else if (enchant === "_LEVEL3") {
+          enchantFix = "_LEVEL3@3";
+          $(".rawOrTrans > .row").css("border-color", "#705599");
+        } else if (enchant === "") {
+          enchantFix = "";
+          $(".rawOrTrans > .row").css("border-color", "black");
+        }
+        getAllRawTrans(enchantFix);
+      });
+
+      /*       $("#enchant > button").click(function() {
+        enchant = $(this).val();
+        if (enchant === "_LEVEL1") {
+          enchantFix = "_LEVEL1@1";
+        } else if (enchant === "_LEVEL2") {
+          enchantFix = "_LEVEL2@2";
+        } else if (enchant === "_LEVEL3") {
+          enchantFix = "_LEVEL3@3";
+        } else if (enchant === "") {
+          enchantFix = "";
+        }
+        getAllRawTrans(enchantFix);
+        var level = $("img");
+        const base = [];
+        for (let i = 0; i < level.length; i++) {
+          base.push($(level[i]).attr("src", $(level[i]).attr("src")));
+          if ($(level[i]).attr("src") === $(base[i]).attr("src")) {
+            $(base[i]).attr("src", $(base[i]).attr("src") + enchant);
+          }
+
+          console.log(base[i]);
+        }
+      }); */
+
+      $("#lock").on("click", function() {
+        if ($("#lock > i").hasClass("fa-lock")) {
+          $("#lock > i")
+            .addClass("fa-lock-open")
+            .removeClass("fa-lock");
+        } else if ($("#lock > i").hasClass("fa-lock-open")) {
+          $("#lock > i")
+            .addClass("fa-lock")
+            .removeClass("fa-lock-open");
+        }
+
+        getAllRawTrans(enchantFix);
+      });
+    </script>
+  </body>
+</html>
